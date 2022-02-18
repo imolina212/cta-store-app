@@ -1,12 +1,18 @@
 //Dependencies
 const express = require('express');
 const products = express.Router();
-const { getAllProducts, getOneProduct, createProduct, updateProduct, deleteProduct } = require("./queries/products")
+const { 
+    getAllProducts, 
+    getOneProduct,
+    // createProduct, 
+    // updateProduct, 
+    // deleteProduct 
+} = require("../queries/products")
 
 //INDEX
 products.get("/", async (req, res) => {
     const allProducts = await getAllProducts();
-    if(products.length === 0) {
+    if(allProducts.length === 0) {
         res.status(500).json({error: "No Products Found"})
     } else {
         res.status(200).json(allProducts)
@@ -27,6 +33,7 @@ products.get("/:id", async (req, res) => {
     }
 })
 //CREATE
+
 //UPDATE
 //DESTROY
 

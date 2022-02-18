@@ -6,7 +6,7 @@ const getAllProducts = async () => {
         return allProducts;
 
     } catch (err) {
-        throw err
+        return err
     }
 }
 
@@ -24,7 +24,7 @@ const getOneProduct = async (id) => {
 module.exports = {
     getAllProducts,
     getOneProduct,
-    createProduct,
-    updateProduct,
-    deleteProduct,
+    // createProduct,
+    // updateProduct,
+    // deleteProduct,
 }

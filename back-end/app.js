@@ -14,7 +14,7 @@ app.use(express.json()); // Parse incoming JSON
 app.use("/products", productsController)
 
 // ROUTES
-app.get("/", (req, res) => {
+app.get("/", (_, res) => {
   res.send("Welcome to Isidro's Store!");
 });
 
