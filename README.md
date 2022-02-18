@@ -4,6 +4,9 @@
 - clone this repo
 
 ## Getting Started
+## Project
+
+- Deployed Heroku Link [here](https://cta-store-app.herokuapp.com/)
 
 ### Project Structure
 
