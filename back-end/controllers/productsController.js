@@ -6,8 +6,7 @@ const {
     getOneProduct,
     createProduct,
     updateProduct, 
-    // updateProduct, 
-    // deleteProduct 
+    deleteProduct 
 } = require("../queries/products")
 
 //INDEX
