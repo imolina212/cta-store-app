@@ -58,5 +58,18 @@ products.put("/:id", async (req, res) => {
 })
 
 //DESTROY
+products.delete("/:id", (req, res) => {
+    const { id } = req.params;
+    try {
+        const deletedProduct = await deleteProduct(id)
+        if(deletedProduct.id){
+            res.status(200).json(deletedProduct)
+        } else {
+            res.status(422).json("Product Not Found")
+        }
+    } catch (err) {
+        return err;
+    }
+})
 
 module.exports = products;
