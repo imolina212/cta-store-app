@@ -4,7 +4,8 @@ const products = express.Router();
 const { 
     getAllProducts, 
     getOneProduct,
-    // createProduct, 
+    createProduct,
+    updateProduct, 
     // updateProduct, 
     // deleteProduct 
 } = require("../queries/products")
@@ -33,8 +34,29 @@ products.get("/:id", async (req, res) => {
     }
 })
 //CREATE
+products.post("/", async (req, res) => {
+    try {
+        const newProduct = await createProduct(req.body)
+        res.status(200).json(newProduct)
+    } catch(err) {
+        return err;
+    }
+})
 
 //UPDATE
+products.put("/:id", async (req, res) => {
+    const updatedProduct = await updateProduct(req.body, req.params.id)
+    try {
+        if(updatedProduct.id){
+            res.status(200).json(updatedProduct)
+        } else {
+            res.status(422).json("error")
+        }
+    } catch (err) {
+        return err;
+    }
+})
+
 //DESTROY
 
 module.exports = products;
