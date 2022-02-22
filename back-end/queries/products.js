@@ -32,9 +32,9 @@ const createProduct = async (product) => {
 const updateProduct = async (id, product) => {
     try {
         const { name, image, description, price, rating, featured } = product;
-        const query = "UPDATE products SET name=$1, image=$2, description=$3, price=$4, rating=$5, featured=$6 WHERE id=$7 RETURNING *";
-        const values = [name, image, description, price, rating, featured, id];
-        const updatedProduct = await db.one(query, values);
+        // const query = "UPDATE products SET name=$1, image=$2, description=$3, price=$4, rating=$5, featured=$6 WHERE id=$7 RETURNING *";
+        // const values = [name, image, description, price, rating, featured, id];
+        const updatedProduct = await db.one("UPDATE products SET name=$1, image=$2, description=$3, price=$4, rating=$5, featured=$6 WHERE id=$7 RETURNING *", [name, image, description, price, rating, featured, id]);
 
         return updatedProduct;
     } catch (err) {
@@ -46,7 +46,7 @@ const deleteProduct = async (id) => {
     try {
         const deletedProduct = await db.one("DELETE FROM products WHERE id=$1 RETURNING *", id);
 
-        return deletedProduct;
+        return deletedProduct
     } catch (err) {
         return err;
     }

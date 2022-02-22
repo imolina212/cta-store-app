@@ -10,7 +10,7 @@ const {
 } = require("../queries/products")
 
 //INDEX
-products.get("/", async (req, res) => {
+products.get("/", async (_, res) => {
     const allProducts = await getAllProducts();
     if(allProducts.length === 0) {
         res.status(500).json({error: "No Products Found"})
@@ -18,6 +18,7 @@ products.get("/", async (req, res) => {
         res.status(200).json(allProducts)
     }
 });
+
 //SHOW
 products.get("/:id", async (req, res) => {
     const { id } = req.params;
@@ -32,6 +33,7 @@ products.get("/:id", async (req, res) => {
         throw err;
     }
 })
+
 //CREATE
 products.post("/", async (req, res) => {
     try {
@@ -44,20 +46,16 @@ products.post("/", async (req, res) => {
 
 //UPDATE
 products.put("/:id", async (req, res) => {
-    const updatedProduct = await updateProduct(req.body, req.params.id)
-    try {
+    const updatedProduct = await updateProduct(req.body, req.params.id);
         if(updatedProduct.id){
             res.status(200).json(updatedProduct)
         } else {
             res.status(422).json("error")
         }
-    } catch (err) {
-        return err;
-    }
 })
 
 //DESTROY
-products.delete("/:id", (req, res) => {
+products.delete("/:id", async (req, res) => {
     const { id } = req.params;
     try {
         const deletedProduct = await deleteProduct(id)
