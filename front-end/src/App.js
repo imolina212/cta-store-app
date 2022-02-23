@@ -19,12 +19,13 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />}/>
           <Route path="/products" element={<Index />}/>
-          {/* <Route path="/products/:id" element={<Show />}/>
+          <Route path="/products/:id" element={<Show />}/>
           <Route path="/products/new" element={<New />}/>
           <Route path="/products/:id/edit" element={<Edit />}/>
-          <Route path="*" element={<Error />}/> */}
+          <Route path="*" element={<Error />}/>
         </Routes>
       </>
   );
 }
+
 export default App;
