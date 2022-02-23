@@ -1,5 +1,5 @@
 import axios from "axios"
-import { Card, Button } from "react-bootstrap"
+import { Card, Button, Stack } from "react-bootstrap"
 import { useState, useEffect } from "react";
 import { useParams , useNavigate, Link} from "react-router-dom";
 
@@ -33,7 +33,10 @@ function ProductDetails() {
           Some quick example text to build on the card title and make up the bulk of
       the card's content.
           </Card.Text>
-          <Button className="my-4" variant="outline-primary">Add to Cart</Button>
+          <Stack direction="horizontal" gap="3">
+            <Button className="my-4" variant="outline-danger" onClick={deleteProduct}>Delete</Button>
+            <Button className="my-4" variant="outline-primary">Add to Cart</Button>
+          </Stack>
         </Card.Body>
       </Card>
     
