@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { Form } from "react-bootstrap";
 
 function ProductForm() {
     const { id } = useParams();
@@ -43,9 +44,36 @@ function ProductForm() {
 
 
   return (
-    <div>
-        ProductForm
-    </div>
+    <Form onSubmit={isEdit ? handleEdit : handleNew}>
+        <Form.Group>
+            <Form.Label htmlFor="name">Name</Form.Label>
+            <Form.Control type="name" value={product.name} onChange={handleInputChange} placeholder="Enter Name" required />
+            <Form.Text>
+
+            </Form.Text>
+        </Form.Group>
+        <Form.Group>
+            <Form.Label>Image</Form.Label>
+            <Form.Control type="image" value={product.image} placeholder="Add Image" required />
+            <Form.Text>
+
+            </Form.Text>
+        </Form.Group>
+        <Form.Group>
+            <Form.Label>Description</Form.Label>
+            <Form.Control type="text" value={product.description} placeholder="Enter Description" required />
+            <Form.Text>
+
+            </Form.Text>
+        </Form.Group>
+        <Form.Group>
+            <Form.Label>Price</Form.Label>
+            <Form.Control type="number" value={product.price} placeholder="Enter Price" required />
+            <Form.Text>
+
+            </Form.Text>
+        </Form.Group>
+    </Form>
   )
 }
 
