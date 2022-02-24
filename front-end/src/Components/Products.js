@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Product from "./Product";
+import { Stack } from "react-bootstrap"
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -20,14 +21,14 @@ function Products() {
   return (
     <main className='Products'>
       <section>
-        <article>
+        <Stack direction="vertical" gap="5" style={{display: "grid", gridTemplateColumns: "1fr 1fr", textAlign: "center"}}>
           {products.map((product) => {
             return <Product key={product.id} product={product}/>
           })}
-        </article>
+        </Stack>
       </section>
     </main>
   )
 }
 
-export default Products;
+export default Products; 
