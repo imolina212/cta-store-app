@@ -46,7 +46,7 @@ products.post("/", async (req, res) => {
 
 //UPDATE
 products.put("/:id", async (req, res) => {
-    const updatedProduct = await updateProduct(req.body, req.params.id);
+    const updatedProduct = await updateProduct(req.params.id, req.body);
         if(updatedProduct.id){
             res.status(200).json(updatedProduct)
         } else {
