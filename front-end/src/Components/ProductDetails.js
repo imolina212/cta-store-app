@@ -1,5 +1,5 @@
 import axios from "axios"
-import { Card, Button, Stack , Container } from "react-bootstrap"
+import { Card, Button, Stack , Container , ListGroup} from "react-bootstrap"
 import { useState, useEffect } from "react";
 import { useParams , useNavigate, Link} from "react-router-dom";
 
@@ -30,10 +30,11 @@ function ProductDetails() {
             <Link to={`/products/${product.id}`}>
               <Card.Img className="p-3" src={product.image} alt="products" />
             </Link>
-            <Card.Text className="mt-3">
-            Some quick example text to build on the card title and make up the bulk of
-        the card's content.
-            </Card.Text>
+            <ListGroup className="mt-4" variant="flush">
+              <ListGroup.Item>Description: {product.description}</ListGroup.Item>
+              <ListGroup.Item>Rating:{product.rating}</ListGroup.Item>
+              <ListGroup.Item>${product.price}</ListGroup.Item>
+            </ListGroup>
             <Stack direction="horizontal" gap="3">
               <Button className="my-4" variant="outline-danger" onClick={deleteProduct}>Delete</Button>
               <Button href={`/products/${id}/edit`} className="my-4" variant="outline-primary">Edit</Button>
