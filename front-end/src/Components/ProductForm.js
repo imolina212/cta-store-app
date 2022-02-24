@@ -1,17 +1,19 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { Form } from "react-bootstrap";
+import { Button, Form , Stack } from "react-bootstrap";
 
 function ProductForm() {
     const { id } = useParams();
     const URL = process.env.REACT_APP_API_URL;
     const navigate = useNavigate();
     const [product, setProduct] = useState({
-        name = "",
-        image = "",
-        description = "",
-        isFeatured = "false",
+        name: "",
+        image: "",
+        description: "",
+        rating: "",
+        price: "",
+        isFeatured: "false",
     })
 
     const isEdit = id ? true : false;
@@ -42,37 +44,28 @@ function ProductForm() {
     console.log(product)
 
 
-
   return (
     <Form onSubmit={isEdit ? handleEdit : handleNew}>
-        <Form.Group>
+        <Form.Group className="my-2">
             <Form.Label htmlFor="name">Name</Form.Label>
-            <Form.Control type="name" value={product.name} onChange={handleInputChange} placeholder="Enter Name" required />
-            <Form.Text>
-
-            </Form.Text>
+            <Form.Control type="name" id="name" value={product.name} onChange={handleInputChange} placeholder="Enter Name" required />
         </Form.Group>
-        <Form.Group>
-            <Form.Label>Image</Form.Label>
-            <Form.Control type="image" value={product.image} placeholder="Add Image" required />
-            <Form.Text>
-
-            </Form.Text>
+        <Form.Group className="my-2">
+            <Form.Label htmlFor="image">Image</Form.Label>
+            <Form.Control type="url" id="image" value={product.image} onChange={handleInputChange}  placeholder="Add Image URL" required />
         </Form.Group>
-        <Form.Group>
-            <Form.Label>Description</Form.Label>
-            <Form.Control type="text" value={product.description} placeholder="Enter Description" required />
-            <Form.Text>
-
-            </Form.Text>
+        <Form.Group className="my-2">
+            <Form.Label htmlFor="description">Description</Form.Label>
+            <Form.Control type="text" id="description" value={product.description} onChange={handleInputChange}  placeholder="Enter Description" required />
         </Form.Group>
-        <Form.Group>
-            <Form.Label>Price</Form.Label>
-            <Form.Control type="number" value={product.price} placeholder="Enter Price" required />
-            <Form.Text>
-
-            </Form.Text>
+        <Form.Group className="my-2">
+            <Form.Label htmlFor="price">Price</Form.Label>
+            <Form.Control type="number" id="price" value={product.price} onChange={handleInputChange}  placeholder="Enter Price" required />
         </Form.Group>
+        <Stack direction="horizontal" gap="3">
+          <Button href={`/products/${id}`} className="mt-4" variant="outline-primary">Back</Button>
+          <Button type='submit' className="mt-4" variant="primary">Submit</Button>
+        </Stack>
     </Form>
   )
 }
