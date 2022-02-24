@@ -29,6 +29,9 @@ function ProductForm() {
     const handleInputChange = (event) => {
         setProduct({ ...product, [event.target.id]: event.target.value});
     };
+    const handleNumberChange = (event) => {
+      setProduct({ ...product, [event.target.id]: Number(event.target.value)});
+  };
 
     const handleNew = async (event) => {
       event.preventDefault();
@@ -42,6 +45,7 @@ function ProductForm() {
         navigate(`/products`);
     };
     console.log(product)
+
 
 
   return (
@@ -60,7 +64,7 @@ function ProductForm() {
         </Form.Group>
         <Form.Group className="my-2">
             <Form.Label htmlFor="price">Price</Form.Label>
-            <Form.Control type="number" id="price" value={product.price} onChange={handleInputChange}  placeholder="Enter Price" required />
+            <Form.Control type="number" id="price" value={product.price} onChange={handleNumberChange}  placeholder="Enter Price" required />
         </Form.Group>
         <Stack direction="horizontal" gap="3">
           <Button href={`/products/${id}`} className="mt-4" variant="outline-primary">Back</Button>
