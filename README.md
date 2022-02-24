@@ -6,7 +6,8 @@
 ## Getting Started
 ## Project
 
-- Deployed Heroku Link [here](https://cta-store-app.herokuapp.com/)
+- Deployed Link [here](https://im-cta-store-app.netlify.app/)
+- GitHub [here](https://github.com/imolina212/cta-store-app)
 
 ### Project Structure
 
