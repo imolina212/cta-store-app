@@ -1,10 +1,12 @@
-import React from 'react'
+import ProductForm from "../Components/ProductForm"
+import { Container } from "react-bootstrap"
 
 const Edit = () => {
   return (
-    <div className='Edit'>
-        <h2>Edit</h2>
-    </div>
+    <Container className="my-5">
+        <h2 className="my-4">Edit</h2>
+        <ProductForm />
+    </Container>
   )
 }
 

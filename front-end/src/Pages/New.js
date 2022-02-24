@@ -1,10 +1,12 @@
-import React from 'react'
+import ProductForm from "../Components/ProductForm"
+import { Container } from "react-bootstrap"
 
 const New = () => {
   return (
-    <div className='New'>
-        <h2>New</h2>
-    </div>
+    <Container className="my-5">
+        <h2 className="my-4">New Form</h2>
+        <ProductForm />
+    </Container>
   )
 }
 
