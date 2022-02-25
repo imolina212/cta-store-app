@@ -33,10 +33,15 @@ function ProductForm() {
       setProduct({ ...product, [event.target.id]: Number(event.target.value)});
   };
 
-    const handleNew = async (event) => {
+    const handleNew =(event) => {
       event.preventDefault();
-      await axios.post(`${URL}/products`, product);
-      navigate("/products");
+      axios.post(`${URL}/products`, product)
+        .then(() => {
+          navigate("/products")
+      }).catch((error) => {
+          console.log(error)
+          throw error;
+      })  
     };
 
     const handleEdit = async (event) => {
