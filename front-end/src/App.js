@@ -11,6 +11,7 @@ import Show from "./Pages/Show";
 import New from "./Pages/New";
 import Edit from "./Pages/Edit";
 import Error from "./Pages/Error";
+import Checkout from "./Pages/Checkout";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/products/:id" element={<Show />}/>
           <Route path="/products/new" element={<New />}/>
           <Route path="/products/:id/edit" element={<Edit />}/>
+          <Route path="/products/cart" element={<Checkout/>}/>
           <Route path="*" element={<Error />}/>
         </Routes>
       </>
