@@ -36,6 +36,7 @@ function ProductDetails() {
               <ListGroup.Item>${product.price}</ListGroup.Item>
             </ListGroup>
             <Stack direction="horizontal" gap="3">
+              <Button href="/products" className="my-4" variant="outline-secondary">Back</Button>
               <Button className="my-4" variant="outline-danger" onClick={deleteProduct}>Delete</Button>
               <Button href={`/products/${id}/edit`} className="my-4" variant="outline-primary">Edit</Button>
               <Button className="my-4" variant="outline-primary">Add to Cart</Button>
